@@ -14,5 +14,7 @@ Learning Objectives: (You will learn how to)
 ## Prerequisites
 
 Basic knowledge of R and RStudio (e.g., R Programming for Beginners - Level 1)
+
 RStudio Cloud account; if you don't have one yet, please create a new account from https://rstudio.cloud site.
+
 Tidyverse package; please make sure that you have installed the tidyverse package in your R environment. See https://www.tidyverse.org for more information.
