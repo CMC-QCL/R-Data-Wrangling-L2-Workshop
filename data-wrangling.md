@@ -1,4 +1,4 @@
-Data Wranglihg with R
+Data Wrangling with R
 ======================================
 author: Jeho Park
 date: July 9, 2020
@@ -207,11 +207,6 @@ Hands-On Exercise 1 (Difficulty: low)
 
 Hands-On Excercise 2 (Difficulty: medium-high)
 
-
-Hands-On - Get Ready
-========================================================
-
-2. Import the coronavirus 
 
 Homework Exercise 1 (Difficulty: low)
 ========================================================

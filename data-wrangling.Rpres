@@ -199,11 +199,6 @@ Hands-On Exercise 1 (Difficulty: low)
 Hands-On Excercise 2 (Difficulty: medium-high)
 
 
-Hands-On - Get Ready
-========================================================
-
-2. Import the coronavirus 
-
 Homework Exercise 1 (Difficulty: low)
 ========================================================
 First, import "Birth2015.csv" as a data.frame `birth2015` to answer the questions below:
