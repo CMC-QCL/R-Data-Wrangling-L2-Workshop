@@ -200,18 +200,18 @@ Hands-On Exercise 1 (Difficulty: low)
 Hands-On Excercise 2 (Difficulty: medium-high)
 
 
-Homework Exercise 1 (Difficulty: low)
+Hands-On Exercise 1 (Difficulty: low)
 ========================================================
 First, import "Birth2015.csv" as a data.frame `birth2015` to answer the questions below:
 
-1. What are the variables?
+1. What are the variables of `birth2015` data.frame?
 2. What is the total number of babies born in 2015?
 3. Make a histogram of number of births.  
 4. How many babies were born on Wednesdays? (must use the pipe operator)
 5. Which date had the least amount of babies born?
 
 
-Homework Excercise 2 (Difficulty: medium-high) 
+Hands-On Excercise 2 (Difficulty: medium-high) 
 ========================================================
 ## COVID-19 Cases in the U.S.
 
