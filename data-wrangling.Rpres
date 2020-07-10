@@ -5,9 +5,10 @@ date: July 9, 2020
 autosize: true
 Workshop Environment Setup
 ====================================
-Log in to RStudio Cloud  
-
-Create a new project -->  Clone the workshop repo from GitHub ("New Project from Git Repo")
+### 1. Log in to RStudio Cloud
+### 2. Create a new project -->  Clone the workshop repo from GitHub ("New Project from Git Repo")
+### 3. Open data-wrangling.Rpres
+### 4. Open QCL-R-Workshop-L2-Hands-On.Rmd
 
 
 QCL Workshop Participation Requirements: 
