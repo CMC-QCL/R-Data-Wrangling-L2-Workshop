@@ -273,7 +273,7 @@ To Be Eligible for a Credit
 ========================================================
 (1) Participate in the workshop.  
 (2) Follow all the hands-on activities.  
-(3) Create an R Markdown (.Rmd) containg all hands-on exercises. 
+(3) Update the R Markdown (QCL-R-Workshop-L2-Hands-On-INITIAL.Rmd) containg all hands-on exercises. 
 (4) Send the R Markdown file to qcl@cmc.edu as an attachment.
 (5) Subject line: "QCL R Workshop L2 - [YOUR_NAME] - 7/9/2020"
 
