@@ -209,13 +209,6 @@ First, import "Birth2015.csv" as a data.frame `birth2015` to answer the question
 4. How many babies were born on Wednesdays? (must use the pipe operator)
 5. Which date had the least amount of babies born?
 
-Homework Exercise 1 - Answers
-========================================================
-1. `names(birth2015)`
-2. `sum(birth2015$births)`: 3,978,497
-3. `hist(birth2015$births)`
-4. `birth2015 %>% group_by(wday) %>% summarise(sum=sum(births)) %>% arrange(sum)`: 638,513
-5. `birth2015 %>% arrange(births) %>% head(3)`: (guess what date it was)
 
 Homework Excercise 2 (Difficulty: medium-high) 
 ========================================================
