@@ -1,0 +1,46 @@
+---
+title: "QCL-R-Workshop-L2"
+author: "Jeho Park"
+date: "7/9/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Hands-On 1
+What is the difference in average uptake rates between chilled and nonchilled plants?
+```{r, eval=F}
+# your work here
+```
+
+### Hands-On 2
+Create a new data.frame, `x`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset.
+```{r, eval=F}
+# your work here
+```
+
+### Hands-On 3
+Now let's try chanining (piping) to create a new data.frame, `y`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset.
+```{r, eval=F}
+# your work here
+```
+
+### Hands-On 4
+What are the three highest CO2 uptake cases? (Hint: descending order)
+```{r eval=TRUE}
+# your work here
+```
+
+### Homework Exercise 1 (Difficulty: low)
+#### Import birth data and answer the questions below.
+1. What are the variables?
+2. What is the total number of babies born in 2015?
+3. Make a histogram of number of births.  
+4. How many babies were born on Wednesdays? (must use the pipe operator)
+5. Which date had the least amount of babies born?
+
+### Homework Excercise 2 (Difficulty: medium-high) 
+#### COVID-19 Cases in the U.S.
+Follow the instructions.
