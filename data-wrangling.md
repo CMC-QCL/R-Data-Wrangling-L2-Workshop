@@ -233,7 +233,7 @@ Here's the [report](https://www.nytimes.com/interactive/2020/us/coronavirus-us-c
 (4) Save the link address as fileurl variable.  
 (5) Import us-states.csv to your R Environment and see what are the variable names  
 (6) Group by `date` and then pipe the results to `summarise` to generate a new variable `sum_cases`; what is the summary function you want to use for summarise?  
-(7) Create a new variable `daily_cases` by mutating the `sum_cases` variable; what kine of mutation do you need here? For calculating the difference between two consecutive days, you want to use `lag` function. Try `lag(1:10, 1)` to see what it returns.  
+(7) Create a new variable `daily_cases` by mutating the `sum_cases` variable; what kind of mutation do you need here? For calculating the difference between two consecutive days, you want to use `lag` function. Try `lag(1:10, 1)` to see what it returns.  
 (8) Use barplot to plot the `daily_cases` variable. 
 
 Homework Excercise 2! (Solution skeleton)
