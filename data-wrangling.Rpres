@@ -3,12 +3,6 @@ Data Wrangling with R
 author: Jeho Park
 date: July 9, 2020
 autosize: true
-Workshop Environment Setup
-====================================
-### 1. Log in to RStudio Cloud
-### 2. Create a new project -->  Clone the workshop repo from GitHub ("New Project from Git Repo")
-### 3. Open data-wrangling.Rpres
-### 4. Open QCL-R-Workshop-L2-Hands-On.Rmd
 
 
 QCL Workshop Participation Requirements: 
@@ -22,6 +16,12 @@ Recommendations for Engagement:
 (2) Use gestures such as nodding, thumbs-up, and rasing hand to signal your understanding/misunderstanding  
 (3) Unmute yourself to ask questions *anytime* 
 
+Workshop Environment Setup
+====================================
+### 1. Log in to RStudio Cloud
+### 2. Create a new project -->  Clone the workshop repo from GitHub ("New Project from Git Repo")
+### 3. Open data-wrangling.Rpres
+### 4. Open QCL-R-Workshop-L2-Hands-On.Rmd
 
 Agenda: Data Wrangling with R
 ====================================
