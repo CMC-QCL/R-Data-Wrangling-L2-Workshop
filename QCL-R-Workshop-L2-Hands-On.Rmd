@@ -1,6 +1,6 @@
 ---
 title: "QCL-R-Workshop-L2"
-author: "Jeho Park"
+author: "YOUR NAME HERE"
 date: "7/9/2020"
 output: html_document
 ---
