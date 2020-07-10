@@ -208,7 +208,7 @@ First, import "Birth2015.csv" as a data.frame `birth2015` to answer the question
 2. What is the total number of babies born in 2015?
 3. Make a histogram of number of births.  
 4. How many babies were born on Wednesdays? (must use the pipe operator)
-5. Which date had the least amount of babies born?
+5. Which `date` had the least amount of babies born?
 
 
 Hands-On Excercise 2 (Difficulty: medium-high) 
