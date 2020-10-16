@@ -97,7 +97,7 @@ Data Manipulation using dplyr::filter
 
 
 ```r
-filter(CO2, treatment=='chilled')
+filter(CO2, Treatment=='chilled')
 ```
 
 Hands-On 1
@@ -242,16 +242,16 @@ Create a barplot showing daily changes in the new COVID-19 cases in the US.
 
 
 ```r
-fileurl <- " _fill-in_ "
+fileurl <- "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv"
 
 require(readr) # need this for read_csv
 us_states <- read_csv(fileurl) 
-
+names(us_states)
 data_covid <- us_states %>% 
-  # group_by
-  # summarise
-  # mutate and lag
-barplot( _fiil-in_ ) # just a simple barplot with one argument 
+  group_by(date) %>%  # group_by
+  summarise(sum_cases = sum(cases)) %>%  # summarise
+  mutate(daily_cases = sum_cases - lag(sum_cases, 1)) # mutate and lag
+barplot(data_covid$daily_cases) # just a simple barplot with one argument 
 ```
 
 So What Should We Do?
