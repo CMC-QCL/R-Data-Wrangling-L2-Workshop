@@ -1,7 +1,7 @@
 Data Wrangling with R
 ======================================
 author: Jeho Park
-date: July 9, 2020
+date: October 16, 2020
 autosize: true
 
 
@@ -13,25 +13,30 @@ If you have to leave in the middle of the workshop, please leave a note on the c
 
 Recommendations for Engagement:  
 (1) Use your camera to show your attention  
-(2) Use gestures such as nodding, thumbs-up, and rasing hand to signal your understanding/misunderstanding  
+(2) Use gestures such as nodding, thumbs-up, and raising hand to signal your understanding/misunderstanding  
 (3) Unmute yourself to ask questions *anytime* 
 
 Workshop Environment Setup
 ====================================
 ### 1. Log in to RStudio Cloud
-### 2. Create a new project -->  Clone the workshop repo from GitHub ("New Project from Git Repo")
+### 2. Create a new project -->  Clone the workshop files from my GitHub Repo (i.e., "New Project from Git Repo")
 ### 3. Open data-wrangling.Rpres
 ### 4. Open QCL-R-Workshop-L2-Hands-On.Rmd
+
+    
+*GitHub repo: https://github.com/CMC-QCL/R-Data-Wrangling-L2-Workshop.git
 
 Agenda: Data Wrangling with R
 ====================================
 - What is data wrangling?
 - Built-in datasets
-- Simple data examination
+- Simple data examination and exploration
 - Simple data visualization
 - Data manipulation using dplyr package
 - Data import (later in hands-on)
-- Hands-On: Create a barplot showing COVID-19 daily new cases in the U.S.
+- Hands-On: 
+  - Find information from a "birth2015" dataset; 
+  - Create a barplot showing COVID-19 daily new cases in the U.S.
 
 What is Data Wrangling?
 ======================================
@@ -41,7 +46,7 @@ Source: Wrangling Wild Horses in the Mountains of Montana (Director: Kristopher 
 
 What is Data Wrangling?
 =============================================
-Data wrangling is the process of obtaining, cleaning, reshaping and transforming raw (and messy) data into a useable form of processed (and tidy) data.
+Data wrangling is the process of obtaining, cleaning, reshaping and transforming raw (and messy) data into a usable form of processed (and tidy) data.
 
 ![Data Wrangling](./data-wrangling-figure/Data_Wrangling_with_R.png)  
 Source: "Data Wrangling with R" by Bradley C. Boehmke | Use R! Series
@@ -57,7 +62,7 @@ View(CO2)
 ```
 
 - The `datasets` package contains several useful toy datasets. 
-- Try `library(help = "datasets")` in the console
+- Try `data()` from the console
 
 A Quick Look of a Dataset (data.frame)
 ========================================================
@@ -78,21 +83,43 @@ Data Visualization
 
 ```r
 hist(CO2$uptake) # Use help function to check its arguments
-boxplot(CO2$conc)
-plot(CO2$uptake, CO2$conc)
+boxplot(CO2$uptake ~ CO2$conc)
+plot(CO2$conc, CO2$uptake)
 ```
 **Note that we used '$' to access (or extract) a variable (or a column) of a dataframe. 
 
 Data Manipulation using dplyr
 ===========================================
+<img src="./data-wrangling-figure/dplyr.png" alt="dplyr" width="500"/>
+
+Data Manipulation using dplyr
+===========================================
 - `dplyr` is the most popular package for data exploration and transformation
-- `dplyr` includes `filter`, `select`, `arrange`, `mutate`, `summarise`, and `group_by` function
+- `dplyr` includes 
+   - `filter` 
+   - `select` 
+   - `arrange` 
+   - `mutate`
+   - `summarise` 
+   - `group_by`
+   
+
+Data Manipulation using dplyr
+===========================================
+- `dplyr` is the most popular package for data exploration and transformation
+- `dplyr` includes 
+   - `filter` picks variables based on their values.
+   - `select` picks cases based on their names.
+   - `arrange` changes the ordering of the rows.
+   - `mutate` adds new variables that are functions of existing variables.
+   - `summarise` reduces multiple values down to a single summary.
+   - `group_by` performs any operation by group.
 
 ## Check if you have the `dplyr` package installed and loaded. If not installed, install `tidyverse` package which includes `dplyr` and other useful packages such as `ggplot2`.
 
 Data Manipulation using dplyr::filter
 ========================================
-- `filter` with a logical operator on a value will filter in/out those observations with the value.
+- `filter` with a logical operator on a value will filter in/out those observations (rows) with the value.
 - `filter` manipulates observations (rows).
 
 
@@ -102,19 +129,22 @@ filter(CO2, Treatment=='chilled')
 
 Hands-On 1
 =========================================
-What is the difference in average uptake rates between chilled and nonchilled plants?
+What is the difference in average uptake rates between chilled and non-chilled plants?
 
+
+```r
+# your work here
+```
 
 Data Manipulation using dplyr::select
 ===========================================
-- `select` function manipulates variables (columns).
-- `select` will extract only the variables you choose
+- `select` picks cases based on their names.
+- `select` manipulates variables (columns).
 
-Create a new data.frame containing only Plant and uptake variables from the CO2 dataset:
+The following shows the first 6 observations containing only Plant and uptake variables from the CO2 data.frame:
 
 ```r
-CO2_uptake <- select(CO2, Plant, uptake)
-View(CO2_uptake)
+head(select(CO2, Plant, uptake))
 ```
 
 Hands-On 2
@@ -131,9 +161,24 @@ Data Manipulation - Chaining using %>%
 - You can chain dplyr functions together using a special looking operator called a pipe operator: `%>%`
 - The pipe operator feeds the resulting object into the 1st argument of the next function.
 
+For example,
+
+```r
+CO2 %>% 
+  filter(Treatment=='nonchilled') %>% 
+  select(Plant, uptake) %>% 
+  head()
+```
+
+Compare that with the following:
+
+```r
+head(select(filter(CO2, Treatment=='nonchilled'), Plant, uptake))
+```
+
 Hands-On 3
 ===================================================
-Now let's try chanining (piping) to create a new data.frame, `y`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset. And then compare `x` you created in the previous hands-on and `y` to see if they are indeed the same.
+Now let's try chaining (piping) to create a new data.frame, `y`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset. And then compare `x` you created in the previous hands-on and `y` to see if they are indeed the same.
 
 
 ```r
@@ -143,18 +188,18 @@ Now let's try chanining (piping) to create a new data.frame, `y`, with two varia
 
 Data Manipulation using dplyr::arrange
 ========================================================
-- `arrange` sorts observations (rows) by a variable (column)
-- `arrange` manipulates observations.
+- `arrange` sorts observations (rows) by a variable (column) in ascending order
+- `arrange` manipulates the order of observations.
 
 What are the three lowest CO2 uptake cases?
 
 ```r
-CO2 %>% arrange(uptake) %>% head(3)
+CO2 %>% arrange(uptake) %>% head(3) # ascending order is default
 ```
 
 Hands-On 4
 ====================================================
-What are the three highest CO2 uptake cases? (Hint: descending order)
+What are the three highest CO2 uptake cases? (Hint: desc function)
 
 ```r
 # your work here
@@ -164,12 +209,12 @@ What are the three highest CO2 uptake cases? (Hint: descending order)
 Data Manipulation using dplyr::mutate
 ========================================================
 - `mutate()` creates new variables and adds it to the end of the data.frame.
-- `mutate` manipulates variables.
+- `mutate` manipulates variables (columns).
 
 Create a new variable `conc_L` containing concentration values divided by 1000
 
 ```r
-CO2 %>% mutate(conc_L = conc / 1000) %>% head(3)
+CO2 %>% mutate(conc_L = conc / 1000)
 ```
 
 Data Manipulation using dplyr::summarise and dplyr::group_by
@@ -182,14 +227,14 @@ Aggregate `CO2` into average values of uptake by plant type:
 ```r
 CO2 %>% 
   group_by(Type) %>% 
-  summarise(avg_uptake = mean(uptake)) 
+  summarise(avg = mean(uptake)) 
 ```
 
 Data Manipulation - Pro Tips
 ========================================================
 - In datasets with a lot of variables, you can use select function to exclude certain variables by using the '-' operator. For example, try `select(CO2, -Plant)`
-- When aggregating data, you need an aggregate function such as mean, median, n (number of rows in a group), sum, etc.
-- If your data have missing values AND you want to exclude them, you need to add the parameter `na.rm = TRUE`. Caution! This will skip any observation having a missing value. Caution2! Sometimes missing values are meaninful. So do not simply exclude them in your data manipulation stage.
+- When aggregating data, you need an aggregate function whose result is a single value such as mean, median, n (number of rows in a group), sum, etc.
+- If your data have missing values AND you want to exclude them, you need to add the parameter `na.rm = TRUE`. _Caution!_ This will skip any observation having a missing value. _Caution2!_ Sometimes missing values are meaningful. So do not simply exclude them in your data manipulation stage.
 - When working with data, the data manipulation process often takes more time than the analysis.
 
 End of Session I
@@ -202,25 +247,35 @@ You've learned:
 
 Session II
 ======================
-For the rest of the workshop, you will be working on a couple of hands-on exercises. If you cannot finish them all in time, you are welcome to finish it after the workshop. A QCL staff can help you remotely via Zoom or asynchronously via emails.
+For the rest of the workshop, you will be working on a couple of hands-on exercises. If you cannot finish them all in time, you are welcome to finish it after the workshop. A QCL staff can help you remotely and synchronously via Zoom or asynchronously via emails.
 
 Hands-On Exercise 1 (Difficulty: low)
 
-Hands-On Excercise 2 (Difficulty: medium-high)
+Hands-On Exercise 2 (Difficulty: medium-high)
 
 
 Hands-On Exercise 1 (Difficulty: low)
 ========================================================
-First, import "Birth2015.csv" as a data.frame `birth2015` to answer the questions below:
+First, import "Births2015.csv" from GitHub as a data.frame `births2015` to answer the questions below:
 
-1. What are the variables of `birth2015` data.frame?
+1. What are the variables of `births2015` data.frame?
 2. What is the total number of babies born in 2015?
 3. Make a histogram of number of births.  
 4. How many babies were born on Wednesdays? (must use the pipe operator)
 5. Which `date` had the least amount of babies born?
 
+The Births2015 CSV file is at https://raw.githubusercontent.com/jehopark/data_wrangling_with_r_beginners/master/Births2015.csv
 
-Hands-On Excercise 2 (Difficulty: medium-high) 
+To import a CSV data file from the Internet:
+
+```r
+require(readr) # need this for read_csv
+fileurl <- "https://raw.githubusercontent.com/jehopark/data_wrangling_with_r_beginners/master/Births2015.csv"
+births2015 <- read_csv(fileurl) 
+```
+
+
+Hands-On Exercise 2 (Difficulty: medium-high) 
 ========================================================
 ## COVID-19 Cases in the U.S.
 
@@ -242,16 +297,16 @@ Create a barplot showing daily changes in the new COVID-19 cases in the US.
 
 
 ```r
-fileurl <- "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv"
-
 require(readr) # need this for read_csv
+
+fileurl <- " _fill-in_ "
 us_states <- read_csv(fileurl) 
-names(us_states)
+
 data_covid <- us_states %>% 
-  group_by(date) %>%  # group_by
-  summarise(sum_cases = sum(cases)) %>%  # summarise
-  mutate(daily_cases = sum_cases - lag(sum_cases, 1)) # mutate and lag
-barplot(data_covid$daily_cases) # just a simple barplot with one argument 
+  # group_by
+  # summarise
+  # mutate and lag
+barplot( _fiil-in_ ) # just a simple barplot with one argument 
 ```
 
 So What Should We Do?
@@ -276,7 +331,7 @@ To Be Eligible for a Credit
 (2) Follow all the hands-on activities.  
 (3) Update the R Markdown (QCL-R-Workshop-L2-Hands-On-INITIAL.Rmd) containg all hands-on exercises. 
 (4) Send the R Markdown file to `qcl@cmc.edu` as an attachment.
-(5) Subject line: "QCL R Workshop L2 - [YOUR_NAME] - 7/9/2020"
+(5) Subject line: "QCL R Workshop L2 - [YOUR_NAME] - 10/16/2020"
 
 [FREE!] resources for your further study
 ========================================================
@@ -284,13 +339,13 @@ To Be Eligible for a Credit
 - DataCamp (https://www.datacamp.com/courses/tech:r)
 - R for Data Science by Hadley Wickham (http://r4ds.had.co.nz/) (Free)
 - Statistics.com (https://www.statistics.com/landing-page/r-courses/)
-- Data Wragnling with R by Bradley Boehmke (free eBook from the library)
+- Data Wrangling with R by Bradley Boehmke (free eBook from the library)
 - The R Book by Michael Crawley (free eBook from the library)
-- `dplyr` cheet sheet (https://github.com/rstudio/cheatsheets/blob/master/data-transformation.pdf)
+- `dplyr` cheat sheet (https://github.com/rstudio/cheatsheets/blob/master/data-transformation.pdf)
 
 Thank you!
 ==========================================
 Your feedback is valuable!
 
-Please fill in an online feedback survey at https://bit.ly/su2020-r-L2-survey
+Please fill in an online feedback survey at 
 
