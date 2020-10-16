@@ -347,5 +347,5 @@ Thank you!
 ==========================================
 Your feedback is valuable!
 
-Please fill in an online feedback survey at 
+# Please fill in an online feedback survey.
 
