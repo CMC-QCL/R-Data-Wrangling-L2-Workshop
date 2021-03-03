@@ -4,7 +4,6 @@ author: Jeho Park
 date: March 3, 2021
 autosize: true
 
-
 QCL Workshop Participation Requirements: 
 ========================================================
 Those of you attending this workshop as part of requirements for your research group, student employment, or fellowship position, you must attend the workshop fully, do all the hands-on exercises plus homework to be qualified. 
@@ -168,8 +167,9 @@ Create a new data.frame, `x`, with two variables, Plant and uptake, containing o
 
 Data Manipulation - Chaining using %>%
 ========================================================
-- You can chain dplyr functions together using a special looking operator called a pipe operator: `%>%`
+- You can chain dplyr functions together using a special looking operator called a pipe operator: `%>%` 
 - The pipe operator feeds the resulting object into the 1st argument of the next function.
+- The keyboard shortcut is Ctrl + Shift + M (Windows) or Cmd + Shift + M (Mac).
 
 For example,
 
@@ -317,7 +317,16 @@ data_covid <- us_states %>%
   # summarise
   # mutate and lag
 barplot( _fiil-in_ ) # just a simple barplot with one argument 
+
+# or use ggplot2 
+require(ggplot2)
+p <- data_covid %>% 
+        ggplot( _fill-in_ ) + 
+        geom_bar(stat= _fill-in_ , color="orange")
+p
 ```
+  
+### Extra Hands-On: Add the seven day moving average line to the bar plot.
 
 So What Should We Do?
 ===============================================
