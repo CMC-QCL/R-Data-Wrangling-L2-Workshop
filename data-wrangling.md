@@ -1,7 +1,7 @@
 Data Wrangling with R
 ======================================
 author: Jeho Park
-date: October 16, 2020
+date: March 3, 2021
 autosize: true
 
 
@@ -120,6 +120,16 @@ Data Manipulation using dplyr
 Data Manipulation using dplyr::filter
 ========================================
 - `filter` with a logical operator on a value will filter in/out those observations (rows) with the value.
+
+
+```r
+# Logical Operators in R
+5 < 2
+(5 < 2) & (3 > 2)
+5 %in% c(1,2,3,4,5)
+is.na(c(1,2,NA,4,5))
+```
+
 - `filter` manipulates observations (rows).
 
 
