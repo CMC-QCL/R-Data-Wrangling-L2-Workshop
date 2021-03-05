@@ -209,7 +209,7 @@ CO2 %>% arrange(uptake) %>% head(3) # ascending order is default
 
 Hands-On 4
 ====================================================
-What are the three highest CO2 uptake cases? (Hint: desc function)
+What are the three highest CO2 uptake cases?
 
 ```r
 #_FILL-IN_# # your work here
