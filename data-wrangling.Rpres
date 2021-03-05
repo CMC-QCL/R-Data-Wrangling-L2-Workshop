@@ -296,7 +296,7 @@ Create a barplot showing daily changes in the new COVID-19 cases in the US.
 library(readr) # need this for read_csv
 
 fileurl <- " #_FILL-IN_# "
-us_states <- read_csv(fileurl) 
+us_states <- read_csv(fileurl) # import CSV
 
 data_covid <- us_states %>% 
   #_FILL-IN_# %>% # group_by
