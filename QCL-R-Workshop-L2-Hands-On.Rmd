@@ -43,4 +43,29 @@ What are the three highest CO2 uptake cases? (Hint: descending order)
 
 ### Homework Excercise 2 (Difficulty: medium-high) 
 #### COVID-19 Cases in the U.S.
-Follow the instructions.
+
+Homework Exercise 2! (Solution skeleton)
+========================================================
+Create a barplot showing daily changes in the new COVID-19 cases in the US.
+
+```{r, eval = FALSE}
+library(readr) # need this for read_csv
+
+fileurl <- " #_FILL-IN_# "
+us_states <- read_csv(fileurl) 
+
+data_covid <- us_states %>% 
+  #_FILL-IN_# # group_by
+  #_FILL-IN_# # summarise
+  #_FILL-IN_# # mutate and lag
+barplot( #_FILL-IN_# ) # just a simple barplot with one argument 
+
+# or use ggplot2 
+require(ggplot2)
+p <- data_covid %>% 
+        ggplot( #_FILL-IN_# ) + 
+        geom_bar(stat="identity", color="orange")
+p
+```
+  
+### Extra Hands-On: Add the seven day moving average line to the bar plot.
