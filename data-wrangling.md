@@ -138,7 +138,7 @@ filter(CO2, Treatment=='chilled')
 
 Hands-On 1
 =========================================
-Which group of plants would have a higher average uptake rate, chilled plants or nonchilled plants? 
+Which group of plants has a higher average uptake rate, chilled plants or nonchilled plants? 
 
 
 ```r
