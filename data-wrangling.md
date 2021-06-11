@@ -278,94 +278,10 @@ The Births2015 CSV file is at https://raw.githubusercontent.com/jehopark/data_wr
 
 To import a CSV data file from the Internet:
 
-```r
-library(readr) # need this for read_csv
-fileurl <- "https://raw.githubusercontent.com/jehopark/data_wrangling_with_r_beginners/master/Births2015.csv"
-births2015 <- read_csv(fileurl) 
+
+
+
+
 ```
-
-
-Hands-On Exercise 2 (Difficulty: medium-high) 
-========================================================
-## COVID-19 Cases in the U.S.
-
-Create a barplot showing daily changes in the new COVID-19 cases in the US.
-
-(1) Data can be found from The NY Times: Coronavirus in the US   
-Here's the [report](https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html) and [data description](https://www.nytimes.com/article/coronavirus-county-data-us.html)  
-(2) Open the GitHub repository where they store the up-to-date datasets  
-(3) Find the **raw** CSV file URL for U.S.State-Level Data (us-states.csv); copy the link address.
-(4) Save the link address as fileurl variable.  
-(5) Import us-states.csv to your R Environment and see what are the variable names  
-(6) Group by `date` and then pipe the results to `summarise` to generate a new variable `sum_cases`; what is the summary function you want to use for summarise?  
-(7) Create a new variable (column) `daily_cases` by mutating the `sum_cases` variable; what kind of mutation do you need here? For calculating the difference between two consecutive days, you want to use `lag` function. Try `lag(1:10, 1)` to see what it returns.  
-(8-1) Use barplot to plot the `daily_cases` variable.
-(8-2) If you are familiar with ggplot2, use geom_bar.
-
-Homework Excercise 2! (Solution skeleton)
-========================================================
-Create a barplot showing daily changes in the new COVID-19 cases in the US.
-
-
-```r
-library(readr) # need this for read_csv
-
-fileurl <- " #_FILL-IN_# "
-us_states <- read_csv(fileurl) # import CSV
-
-data_covid <- us_states %>% 
-  #_FILL-IN_# %>% # group_by
-  #_FILL-IN_# %>%  # summarise
-  #_FILL-IN_# # mutate and lag
-barplot( #_FILL-IN_# ) # just a simple barplot with one argument 
-
-# or use ggplot2 
-require(ggplot2)
-p <- data_covid %>% 
-        ggplot( #_FILL-IN_# ) + 
-        geom_bar(stat="identity", color="orange")
-p
+Error in library(readr) : there is no package called 'readr'
 ```
-  
-### Extra Hands-On: Add the seven day moving average line to the bar plot.
-
-So What Should We Do?
-===============================================
-# #WearAMask
-# #WashHands
-# #KeepSocialDistancing
-and...
-# #LearnR!
-
-End of Session II
-========================================================
-# Make sure you can 
-* Import CSV files from a local folder as well as from a remote location
-* Plot histogram and barplot
-* Use pipe operator from dplyr package
-* Use different functions from dplyr such as filter, select, arrange, mutate, summarise, and group_by.
-
-To Be Eligible for a Credit
-========================================================
-(1) Participate in the workshop.  
-(2) Follow all the hands-on activities.  
-(3) Update the R Markdown (QCL-R-Workshop-L2-Hands-On-INITIAL.Rmd) containg all hands-on exercises. 
-(4) Send the R Markdown file to `qcl@cmc.edu` as an attachment.
-(5) Subject line: "QCL R Workshop L2 - [YOUR_NAME] - [DATE]"
-
-[FREE!] resources for your further study
-========================================================
-- Swirl (http://swirlstats.com/)
-- DataCamp (https://www.datacamp.com/courses/tech:r)
-- R for Data Science by Hadley Wickham (http://r4ds.had.co.nz/) (Free)
-- Statistics.com (https://www.statistics.com/landing-page/r-courses/)
-- Data Wrangling with R by Bradley Boehmke (free eBook from the library)
-- The R Book by Michael Crawley (free eBook from the library)
-- `dplyr` cheat sheet (https://github.com/rstudio/cheatsheets/blob/master/data-transformation.pdf)
-
-Thank you!
-==========================================
-Your feedback is valuable!
-
-# Please fill in our online feedback survey.
-
