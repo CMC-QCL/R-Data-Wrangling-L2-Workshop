@@ -123,6 +123,7 @@ Data Manipulation using dplyr::filter
 
 ```r
 # Logical Operators in R
+5 == 2
 5 < 2
 (5 < 2) & (3 > 2)
 5 %in% c(1,2,3,4,5)

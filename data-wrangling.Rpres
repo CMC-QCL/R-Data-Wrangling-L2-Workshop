@@ -121,6 +121,7 @@ Data Manipulation using dplyr::filter
 
 ```{r eval=F}
 # Logical Operators in R
+5 == 2
 5 < 2
 (5 < 2) & (3 > 2)
 5 %in% c(1,2,3,4,5)
