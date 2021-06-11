@@ -1,7 +1,7 @@
 Data Wrangling with R
 ======================================
 author: Jeho Park
-date: March 5, 2021
+date: June 10, 2021
 autosize: true
 
 QCL Workshop Participation Requirements: 
@@ -121,6 +121,7 @@ Data Manipulation using dplyr::filter
 
 ```{r eval=F}
 # Logical Operators in R
+5 == 2
 5 < 2
 (5 < 2) & (3 > 2)
 5 %in% c(1,2,3,4,5)
@@ -180,7 +181,13 @@ head(select(filter(CO2, Treatment=='nonchilled'), Plant, uptake))
 
 Hands-On 3
 ===================================================
-Now let's try chaining (piping) to create a new data.frame, `y`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset. And then compare `x` you created in the previous hands-on and `y` to see if they are indeed the same.
+Now let's try chaining (piping) to create a new data.frame, `y`, only containing nonchilled plants with Plant and uptake variables. 
+
+Using CO2 dataset,  
+(1) filter out chilled plant cases, so the data.frame only has __nonchilled__ plant cases,  
+(2) select two variables, `Plant` and `uptake` from the new data.frame,  
+(3) assign the new data.frame to a new variable, `y`, and   
+(4) compare `x` and `y` and see if they are indeed the same.
 
 ```{r eval=TRUE}
 #_FILL-IN_# # your work here
@@ -288,7 +295,7 @@ Here's the [report](https://www.nytimes.com/interactive/2020/us/coronavirus-us-c
 (8-1) Use barplot to plot the `daily_cases` variable.
 (8-2) If you are familiar with ggplot2, use geom_bar.
 
-Homework Excercise 2! (Solution skeleton)
+Homework Exercise 2! (Solution skeleton)
 ========================================================
 Create a barplot showing daily changes in the new COVID-19 cases in the US.
 
@@ -304,10 +311,10 @@ data_covid <- us_states %>%
   #_FILL-IN_# # mutate and lag
 barplot( #_FILL-IN_# ) # just a simple barplot with one argument 
 
-# or use ggplot2 
+# or use ggplot2 ## We will learn ggplot2 in Visualization Workshop
 require(ggplot2)
 p <- data_covid %>% 
-        ggplot( #_FILL-IN_# ) + 
+        ggplot(aes(x=date, y=daily_cases)) + 
         geom_bar(stat="identity", color="orange")
 p
 ```

@@ -1,7 +1,7 @@
 Data Wrangling with R
 ======================================
 author: Jeho Park
-date: March 5, 2021
+date: June 10, 2021
 autosize: true
 
 QCL Workshop Participation Requirements: 
@@ -123,6 +123,7 @@ Data Manipulation using dplyr::filter
 
 ```r
 # Logical Operators in R
+5 == 2
 5 < 2
 (5 < 2) & (3 > 2)
 5 %in% c(1,2,3,4,5)
@@ -188,7 +189,13 @@ head(select(filter(CO2, Treatment=='nonchilled'), Plant, uptake))
 
 Hands-On 3
 ===================================================
-Now let's try chaining (piping) to create a new data.frame, `y`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset. And then compare `x` you created in the previous hands-on and `y` to see if they are indeed the same.
+Now let's try chaining (piping) to create a new data.frame, `y`, only containing nonchilled plants with Plant and uptake variables. 
+
+Using CO2 dataset,  
+(1) filter out chilled plant cases, so the data.frame only has __nonchilled__ plant cases,  
+(2) select two variables, `Plant` and `uptake` from the new data.frame,  
+(3) assign the new data.frame to a new variable, `y`, and   
+(4) compare `x` and `y` and see if they are indeed the same.
 
 
 ```r
@@ -280,8 +287,51 @@ To import a CSV data file from the Internet:
 
 
 
+<<<<<<< HEAD
 
 
+=======
+Hands-On Exercise 2 (Difficulty: medium-high) 
+========================================================
+## COVID-19 Cases in the U.S.
+
+Create a barplot showing daily changes in the new COVID-19 cases in the US.
+
+(1) Data can be found from The NY Times: Coronavirus in the US   
+Here's the [report](https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html) and [data description](https://www.nytimes.com/article/coronavirus-county-data-us.html)  
+(2) Open the GitHub repository where they store the up-to-date datasets  
+(3) Find the **raw** CSV file URL for U.S.State-Level Data (us-states.csv); copy the link address.
+(4) Save the link address as fileurl variable.  
+(5) Import us-states.csv to your R Environment and see what are the variable names  
+(6) Group by `date` and then pipe the results to `summarise` to generate a new variable `sum_cases`; what is the summary function you want to use for summarise?  
+(7) Create a new variable (column) `daily_cases` by mutating the `sum_cases` variable; what kind of mutation do you need here? For calculating the difference between two consecutive days, you want to use `lag` function. Try `lag(1:10, 1)` to see what it returns.  
+(8-1) Use barplot to plot the `daily_cases` variable.
+(8-2) If you are familiar with ggplot2, use geom_bar.
+
+Homework Exercise 2! (Solution skeleton)
+========================================================
+Create a barplot showing daily changes in the new COVID-19 cases in the US.
+
+
+```r
+library(readr) # need this for read_csv
+
+fileurl <- " #_FILL-IN_# "
+us_states <- read_csv(fileurl) # import CSV
+
+data_covid <- us_states %>% 
+  #_FILL-IN_# %>% # group_by
+  #_FILL-IN_# %>%  # summarise
+  #_FILL-IN_# # mutate and lag
+barplot( #_FILL-IN_# ) # just a simple barplot with one argument 
+
+# or use ggplot2 ## We will learn ggplot2 in Visualization Workshop
+require(ggplot2)
+p <- data_covid %>% 
+        ggplot(aes(x=date, y=daily_cases)) + 
+        geom_bar(stat="identity", color="orange")
+p
+>>>>>>> 436d8351289580fc531f39d7e7e7d594677588cd
 ```
 Error in library(readr) : there is no package called 'readr'
 ```
