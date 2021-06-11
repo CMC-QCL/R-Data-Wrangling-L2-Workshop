@@ -310,7 +310,7 @@ data_covid <- us_states %>%
   #_FILL-IN_# # mutate and lag
 barplot( #_FILL-IN_# ) # just a simple barplot with one argument 
 
-# or use ggplot2 
+# or use ggplot2 ## We will learn ggplot2 in Visualization Workshop
 require(ggplot2)
 p <- data_covid %>% 
         ggplot(aes(x=date, y=daily_cases)) + 
