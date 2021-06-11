@@ -294,7 +294,7 @@ Here's the [report](https://www.nytimes.com/interactive/2020/us/coronavirus-us-c
 (8-1) Use barplot to plot the `daily_cases` variable.
 (8-2) If you are familiar with ggplot2, use geom_bar.
 
-Homework Excercise 2! (Solution skeleton)
+Homework Exercise 2! (Solution skeleton)
 ========================================================
 Create a barplot showing daily changes in the new COVID-19 cases in the US.
 
