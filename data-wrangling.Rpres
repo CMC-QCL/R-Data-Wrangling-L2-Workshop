@@ -86,6 +86,18 @@ plot(x = CO2$conc, y = CO2$uptake)
 ```
 **Note that we used '$' to access (or extract) a variable (or a column) of a dataframe. 
 
+Data Visualization - Boxplot
+========================================================
+```{r, eval=F}
+boxplot(auto$mpg ~ auto$cylinders, data = auto, xlab = "Number of Cylinders", ylab = "Miles Per Gallon", main = "Mileage Data")
+```
+
+```{r, out.width='80%', fig.align='center', fig.cap='Data Wrangling', echo = FALSE}
+knitr::include_graphics('./data-wrangling-figure/boxplot.png')
+```
+Source: https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
+
+
 Data Manipulation using dplyr
 ===========================================
 <img src="./data-wrangling-figure/dplyr.png" alt="dplyr" width="500"/>
