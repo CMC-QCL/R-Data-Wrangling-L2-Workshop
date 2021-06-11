@@ -184,7 +184,7 @@ Hands-On 3
 Now let's try chaining (piping) to create a new data.frame, `y`, only containing nonchilled plants with Plant and uptake variables. 
 
 Using CO2 dataset,  
-(1) filter out chilled plant cases, so the data.frame only has __nonchilled__ plant cases,  
+(1) filter out chilled plant cases, so the data.frame only has __nonchilled__ plant cases (to be fed to the next function),   
 (2) select two variables, `Plant` and `uptake` from the new data.frame,  
 (3) assign the new data.frame to a new variable, `y`, and   
 (4) compare `x` and `y` and see if they are indeed the same.
