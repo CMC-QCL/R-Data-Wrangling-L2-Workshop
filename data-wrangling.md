@@ -154,7 +154,7 @@ filter(CO2, Treatment=='chilled')
 
 Hands-On 1
 =========================================
-Which group of plants has a higher average uptake rate, chilled plants or nonchilled plants? 
+Which group of plants (chilled or nonchilled) has a higher average CO2 uptake rate and by how much? 
 
 
 ```r
@@ -163,7 +163,7 @@ Which group of plants has a higher average uptake rate, chilled plants or nonchi
 
 Data Manipulation using dplyr::select
 ===========================================
-- `select` picks cases based on their names.
+- `select` picks variables based on their names.
 - `select` manipulates variables (columns).
 
 The following shows the first 6 observations containing only Plant and uptake variables from the CO2 data.frame:
