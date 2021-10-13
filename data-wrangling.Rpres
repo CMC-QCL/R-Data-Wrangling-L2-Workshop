@@ -1,7 +1,7 @@
 Data Wrangling with R
 ======================================
 author: Jeho Park
-date: June 10, 2021
+date: October 13, 2021
 autosize: true
 
 QCL Workshop Participation Requirements: 
@@ -89,10 +89,12 @@ plot(x = CO2$conc, y = CO2$uptake)
 Data Visualization - Boxplot
 ========================================================
 ```{r, eval=F}
+library(readr)
+auto <- read_csv("auto.csv")
 boxplot(auto$mpg ~ auto$cylinders, data = auto, xlab = "Number of Cylinders", ylab = "Miles Per Gallon", main = "Mileage Data")
 ```
 
-```{r, out.width='80%', fig.align='center', fig.cap='Data Wrangling', echo = FALSE}
+```{r, out.width='70%', fig.align='center', fig.cap='Data Wrangling', echo = FALSE}
 knitr::include_graphics('./data-wrangling-figure/boxplot.png')
 ```
 Source: https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
@@ -100,7 +102,8 @@ Source: https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
 
 Data Manipulation using dplyr
 ===========================================
-<img src="./data-wrangling-figure/dplyr.png" alt="dplyr" width="500"/>
+<img src="./data-wrangling-figure/dplyr.png" alt="dplyr" width="500"/>  
+A grammar of data manipulation: https://dplyr.tidyverse.org/
 
 Data Manipulation using dplyr
 ===========================================
@@ -118,8 +121,8 @@ Data Manipulation using dplyr
 ===========================================
 - `dplyr` is the most popular package for data exploration and transformation
 - `dplyr` includes 
-   - `filter` picks variables based on their values.
-   - `select` picks cases based on their names.
+   - `filter` picks observations based on their values.
+   - `select` picks variables based on their names.
    - `arrange` changes the ordering of the rows.
    - `mutate` adds new variables that are functions of existing variables.
    - `summarise` reduces multiple values down to a single summary.
@@ -143,6 +146,7 @@ is.na(c(1,2,NA,4,5))
 - `filter` manipulates observations (rows).
 
 ```{r eval=F}
+library(dplyr)
 filter(CO2, Treatment=='chilled')
 ```
 

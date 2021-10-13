@@ -1,7 +1,7 @@
 Data Wrangling with R
 ======================================
 author: Jeho Park
-date: June 10, 2021
+date: October 13, 2021
 autosize: true
 
 QCL Workshop Participation Requirements: 
@@ -87,9 +87,23 @@ plot(x = CO2$conc, y = CO2$uptake)
 ```
 **Note that we used '$' to access (or extract) a variable (or a column) of a dataframe. 
 
+Data Visualization - Boxplot
+========================================================
+
+```r
+library(readr)
+auto <- read_csv("auto.csv")
+boxplot(auto$mpg ~ auto$cylinders, data = auto, xlab = "Number of Cylinders", ylab = "Miles Per Gallon", main = "Mileage Data")
+```
+
+<img src="./data-wrangling-figure/boxplot.png" title="Data Wrangling" alt="Data Wrangling" width="70%" style="display: block; margin: auto;" />
+Source: https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
+
+
 Data Manipulation using dplyr
 ===========================================
-<img src="./data-wrangling-figure/dplyr.png" alt="dplyr" width="500"/>
+<img src="./data-wrangling-figure/dplyr.png" alt="dplyr" width="500"/>  
+A grammar of data manipulation: https://dplyr.tidyverse.org/
 
 Data Manipulation using dplyr
 ===========================================
@@ -107,8 +121,8 @@ Data Manipulation using dplyr
 ===========================================
 - `dplyr` is the most popular package for data exploration and transformation
 - `dplyr` includes 
-   - `filter` picks variables based on their values.
-   - `select` picks cases based on their names.
+   - `filter` picks observations based on their values.
+   - `select` picks variables based on their names.
    - `arrange` changes the ordering of the rows.
    - `mutate` adds new variables that are functions of existing variables.
    - `summarise` reduces multiple values down to a single summary.
@@ -134,6 +148,7 @@ is.na(c(1,2,NA,4,5))
 
 
 ```r
+library(dplyr)
 filter(CO2, Treatment=='chilled')
 ```
 
@@ -285,12 +300,13 @@ The Births2015 CSV file is at https://raw.githubusercontent.com/jehopark/data_wr
 
 To import a CSV data file from the Internet:
 
+```r
+library(readr) # need this for read_csv
+fileurl <- "https://raw.githubusercontent.com/jehopark/data_wrangling_with_r_beginners/master/Births2015.csv"
+births2015 <- read_csv(fileurl) 
+```
 
 
-<<<<<<< HEAD
-
-
-=======
 Hands-On Exercise 2 (Difficulty: medium-high) 
 ========================================================
 ## COVID-19 Cases in the U.S.
@@ -331,7 +347,47 @@ p <- data_covid %>%
         ggplot(aes(x=date, y=daily_cases)) + 
         geom_bar(stat="identity", color="orange")
 p
->>>>>>> 436d8351289580fc531f39d7e7e7d594677588cd
 ```
-Error in library(readr) : there is no package called 'readr'
-```
+  
+### Extra Hands-On: Add the seven day moving average line to the bar plot.
+
+So What Should We Do?
+===============================================
+# #WearAMask
+# #WashHands
+# #KeepSocialDistancing
+and...
+# #LearnR!
+
+End of Session II
+========================================================
+# Make sure you can 
+* Import CSV files from a local folder as well as from a remote location
+* Plot histogram and barplot
+* Use pipe operator from dplyr package
+* Use different functions from dplyr such as filter, select, arrange, mutate, summarise, and group_by.
+
+To Be Eligible for a Credit
+========================================================
+(1) Participate in the workshop.  
+(2) Follow all the hands-on activities.  
+(3) Update the R Markdown (QCL-R-Workshop-L2-Hands-On-INITIAL.Rmd) containg all hands-on exercises. 
+(4) Send the R Markdown file to `qcl@cmc.edu` as an attachment.
+(5) Subject line: "QCL R Workshop L2 - [YOUR_NAME] - [DATE]"
+
+[FREE!] resources for your further study
+========================================================
+- Swirl (http://swirlstats.com/)
+- DataCamp (https://www.datacamp.com/courses/tech:r)
+- R for Data Science by Hadley Wickham (http://r4ds.had.co.nz/) (Free)
+- Statistics.com (https://www.statistics.com/landing-page/r-courses/)
+- Data Wrangling with R by Bradley Boehmke (free eBook from the library)
+- The R Book by Michael Crawley (free eBook from the library)
+- `dplyr` cheat sheet (https://github.com/rstudio/cheatsheets/blob/master/data-transformation.pdf)
+
+Thank you!
+==========================================
+Your feedback is valuable!
+
+# Please fill in our online feedback survey.
+
