@@ -139,7 +139,7 @@ Data Manipulation using dplyr::filter
 # Logical Operators in R
 5 == 2
 5 < 2
-(5 < 2) & (3 > 2)
+(5 < 2) | (3 > 2)
 5 %in% c(1,2,3,4,5)
 is.na(c(1,2,NA,4,5))
 ```
@@ -259,7 +259,7 @@ Aggregate `CO2` into average values of uptake by plant type:
 ```r
 CO2 %>% 
   group_by(Type) %>% 
-  summarise(avg = mean(uptake)) 
+  summarise(avg_uptake = mean(uptake)) 
 ```
 
 Data Manipulation - Pro Tips
