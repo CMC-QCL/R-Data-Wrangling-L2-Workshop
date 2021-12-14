@@ -1,7 +1,7 @@
 Data Wrangling with R
 ======================================
 author: Jeho Park
-date: October 13, 2021
+date: December 14, 2021
 autosize: true
 
 QCL Workshop Participation Requirements: 
