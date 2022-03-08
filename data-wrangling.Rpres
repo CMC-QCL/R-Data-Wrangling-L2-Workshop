@@ -1,7 +1,7 @@
 Data Wrangling with R
 ======================================
 author: Jeho Park
-date: February 4, 2022
+date: March 7, 2022
 autosize: true
 
 QCL Workshop Participation Requirements: 
@@ -138,7 +138,7 @@ Data Manipulation using dplyr::filter
 # Logical Operators in R
 5 == 2
 5 < 2
-(5 < 2) | (3 > 2)
+(5 < 2) & (3 > 2)
 5 %in% c(1,2,3,4,5)
 is.na(c(1,2,NA,4,5))
 ```
@@ -225,6 +225,7 @@ Hands-On 4
 What are the three highest CO2 uptake cases?
 ```{r eval=TRUE}
 #_FILL-IN_# # your work here
+CO2 %>% arrange(desc(uptake)) %>% head(3) 
 ```
 
 
@@ -235,7 +236,7 @@ Data Manipulation using dplyr::mutate
 
 Create a new variable `conc_L` containing concentration values divided by 1000
 ```{r eval=FALSE}
-CO2 %>% mutate(conc_L = conc / 1000)
+CO2 %>% mutate(conc_L = conc / 1000) %>% head()
 ```
 
 Data Manipulation using dplyr::summarise and dplyr::group_by
