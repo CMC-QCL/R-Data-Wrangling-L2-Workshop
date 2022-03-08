@@ -235,7 +235,6 @@ What are the three highest CO2 uptake cases?
 
 ```r
 #_FILL-IN_# # your work here
-CO2 %>% arrange(desc(uptake)) %>% head(3) 
 ```
 
 
@@ -260,7 +259,7 @@ Aggregate `CO2` into average values of uptake by plant type:
 ```r
 CO2 %>% 
   group_by(Type) %>% 
-  summarise(avg_uptake = mean(uptake)) 
+  summarise(avg_uptake = mean(uptake, na.rm = TRUE)) 
 ```
 
 Data Manipulation - Pro Tips
