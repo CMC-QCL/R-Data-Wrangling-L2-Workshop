@@ -54,6 +54,8 @@ library(readr) # need this for read_csv
 fileurl <- " #_FILL-IN_# "
 us_states <- read_csv(fileurl) 
 
+names(us_states)
+
 data_covid <- us_states %>% 
   #_FILL-IN_# # group_by
   #_FILL-IN_# # summarise
