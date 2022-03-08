@@ -233,17 +233,162 @@ Hands-On 4
 ====================================================
 What are the three highest CO2 uptake cases?
 
-
-
-
-
-
-
-
-
-
-
+```r
+#_FILL-IN_# # your work here
+CO2 %>% arrange(desc(uptake)) %>% head(3) 
 ```
-Error in CO2 %>% arrange(desc(uptake)) %>% head(3) : 
-  could not find function "%>%"
+
+
+Data Manipulation using dplyr::mutate
+========================================================
+- `mutate()` creates new variables and adds it to the end of the data.frame.
+- `mutate` manipulates variables (columns).
+
+Create a new variable `conc_L` containing concentration values divided by 1000
+
+```r
+CO2 %>% mutate(conc_L = conc / 1000) %>% head()
 ```
+
+Data Manipulation using dplyr::summarise and dplyr::group_by
+========================================================
+- `summarise` applies a summary function (e.g., mean, sum, etc.) and returns a result.
+- To aggregate variables, `group_by` and `summarise` work together as follows:
+
+Aggregate `CO2` into average values of uptake by plant type:
+
+```r
+CO2 %>% 
+  group_by(Type) %>% 
+  summarise(avg_uptake = mean(uptake)) 
+```
+
+Data Manipulation - Pro Tips
+========================================================
+- In datasets with a lot of variables, you can use select function to exclude certain variables by using the '-' operator. For example, try `select(CO2, -Plant)`
+- When aggregating data, you need an aggregate function whose result is a single value such as mean, median, n (number of rows in a group), sum, etc.
+- If your data have missing values AND you want to exclude them, you need to add the parameter `na.rm = TRUE`. _Caution!_ This will skip any observation having a missing value. _Caution2!_ Sometimes missing values are meaningful. So do not simply exclude them in your data manipulation stage.
+- When working with data, the data manipulation process often takes more time than the analysis.
+
+End of Session I
+=====================
+You've learned:
+- data wrangling 
+- a couple of simple ways to examine your dataset
+- a couple of data visualizations
+- various ways to manipulate data using dplyr's `filter`, `select`, `arrange`, `mutate`, `summarise`, and `group_by` function.
+
+Session II
+======================
+For the rest of the workshop, you will be working on a couple of hands-on exercises. If you cannot finish them all in time, you are welcome to finish it after the workshop. A QCL staff can help you remotely and synchronously via Zoom or asynchronously via emails.
+
+Hands-On Exercise 1 (Difficulty: low)
+
+Hands-On Exercise 2 (Difficulty: medium-high)
+
+
+Hands-On Exercise 1 (Difficulty: low)
+========================================================
+First, import "Births2015.csv" from GitHub as a data.frame `births2015` to answer the questions below:
+
+1. What are the variables of `births2015` data.frame?
+2. What is the total number of babies born in 2015?
+3. Make a histogram of number of births.  
+4. How many babies were born on Wednesdays? (must use the pipe operator)
+5. Which `date` had the least amount of babies born?
+
+The Births2015 CSV file is at https://raw.githubusercontent.com/jehopark/data_wrangling_with_r_beginners/master/Births2015.csv
+
+To import a CSV data file from the Internet:
+
+```r
+library(readr) # need this for read_csv
+fileurl <- "https://raw.githubusercontent.com/jehopark/data_wrangling_with_r_beginners/master/Births2015.csv"
+births2015 <- read_csv(fileurl) 
+```
+
+
+Hands-On Exercise 2 (Difficulty: medium-high) 
+========================================================
+## COVID-19 Cases in the U.S.
+
+Create a barplot showing daily changes in the new COVID-19 cases in the US.
+
+(1) Data can be found from The NY Times: Coronavirus in the US   
+Here's the [report](https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html) and [data description](https://www.nytimes.com/article/coronavirus-county-data-us.html)  
+(2) Open the GitHub repository where they store the up-to-date datasets  
+(3) Find the **raw** CSV file URL for U.S.State-Level Data (us-states.csv); copy the link address.
+(4) Save the link address as fileurl variable.  
+(5) Import us-states.csv to your R Environment and see what are the variable names  
+(6) Group by `date` and then pipe the results to `summarise` to generate a new variable `sum_cases`; what is the summary function you want to use for summarise?  
+(7) Create a new variable (column) `daily_cases` by mutating the `sum_cases` variable; what kind of mutation do you need here? For calculating the difference between two consecutive days, you want to use `lag` function. Try `lag(1:10, 1)` to see what it returns.  
+(8-1) Use barplot to plot the `daily_cases` variable.
+(8-2) If you are familiar with ggplot2, use geom_bar.
+
+Homework Exercise 2! (Solution skeleton)
+========================================================
+Create a barplot showing daily changes in the new COVID-19 cases in the US.
+
+
+```r
+library(readr) # need this for read_csv
+
+fileurl <- " #_FILL-IN_# "
+us_states <- read_csv(fileurl) # import CSV
+
+data_covid <- us_states %>% 
+  #_FILL-IN_# %>% # group_by
+  #_FILL-IN_# %>%  # summarise
+  #_FILL-IN_# # mutate and lag
+barplot( #_FILL-IN_# ) # just a simple barplot with one argument 
+
+# or use ggplot2 ## We will learn ggplot2 in Visualization Workshop
+require(ggplot2)
+p <- data_covid %>% 
+        ggplot(aes(x=date, y=daily_cases)) + 
+        geom_bar(stat="identity", color="orange")
+p
+```
+  
+### Extra Hands-On: Add the seven day moving average line to the bar plot.
+
+So What Should We Do?
+===============================================
+# #WearAMask
+# #WashHands
+# #KeepSocialDistancing
+and...
+# #LearnR!
+
+End of Session II
+========================================================
+# Make sure you can 
+* Import CSV files from a local folder as well as from a remote location
+* Plot histogram and barplot
+* Use pipe operator from dplyr package
+* Use different functions from dplyr such as filter, select, arrange, mutate, summarise, and group_by.
+
+To Be Eligible for a Credit
+========================================================
+(1) Participate in the workshop.  
+(2) Follow all the hands-on activities.  
+(3) Update the R Markdown (QCL-R-Workshop-L2-Hands-On-INITIAL.Rmd) containg all hands-on exercises. 
+(4) Send the R Markdown file to `qcl@cmc.edu` as an attachment.
+(5) Subject line: "QCL R Workshop L2 - [YOUR_NAME] - [DATE]"
+
+[FREE!] resources for your further study
+========================================================
+- Swirl (http://swirlstats.com/)
+- DataCamp (https://www.datacamp.com/courses/tech:r)
+- R for Data Science by Hadley Wickham (http://r4ds.had.co.nz/) (Free)
+- Statistics.com (https://www.statistics.com/landing-page/r-courses/)
+- Data Wrangling with R by Bradley Boehmke (free eBook from the library)
+- The R Book by Michael Crawley (free eBook from the library)
+- `dplyr` cheat sheet (https://github.com/rstudio/cheatsheets/blob/master/data-transformation.pdf)
+
+Thank you!
+==========================================
+Your feedback is valuable!
+
+# Please fill in our online feedback survey.
+

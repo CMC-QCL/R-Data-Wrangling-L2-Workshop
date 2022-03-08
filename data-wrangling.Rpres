@@ -205,7 +205,7 @@ Using CO2 dataset,
 (3) assign the new data.frame to a new variable, `y`, and   
 (4) compare `x` and `y` and see if they are indeed the same.
 
-```{r eval=TRUE}
+```{r eval=FALSE}
 #_FILL-IN_# # your work here
 ```
 
@@ -223,7 +223,7 @@ CO2 %>% arrange(uptake) %>% head(3) # ascending order is default
 Hands-On 4
 ====================================================
 What are the three highest CO2 uptake cases?
-```{r eval=TRUE}
+```{r eval=FALSE}
 #_FILL-IN_# # your work here
 CO2 %>% arrange(desc(uptake)) %>% head(3) 
 ```
