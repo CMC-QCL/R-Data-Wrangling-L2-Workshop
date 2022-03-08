@@ -22,7 +22,7 @@ Create a new data.frame, `x`, with two variables, Plant and uptake, containing o
 ```
 
 ### Hands-On 3
-Now let's try chanining (piping) to create a new data.frame, `y`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset.
+Now let's try chaining (piping) to create a new data.frame, `y`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset.
 ```{r, eval=F}
 # your work here
 ```
