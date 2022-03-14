@@ -1,7 +1,9 @@
 
 [![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/80x15.png)](https://creativecommons.org/licenses/by/4.0/)
 
-# Data Wrangling with R (Level 2 - Data)
+# Workshop Syllabus 
+
+QCL Literacy: Level 2 - Data, Progamming
 
 ## Summary
 
