@@ -3,7 +3,9 @@
 
 # Workshop Syllabus 
 
-QCL Literacy: Level 2 - Data, Progamming
+#### QCL Literacy: Level 2 - Data, Progamming
+
+Instructor: Jeho Park, Director of the Quantitative and Computing Lab at Claremont McKenna College
 
 ## Summary
 
