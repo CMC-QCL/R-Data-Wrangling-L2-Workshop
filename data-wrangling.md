@@ -130,6 +130,18 @@ Data Manipulation using dplyr
 
 ## Check if you have the `dplyr` package installed and loaded. If not installed, install `tidyverse` package which includes `dplyr` and other useful packages such as `ggplot2`.
 
+filter example
+============
+
+```r
+filter(storms, wind >= 50)
+```
+
+<img src="./data-wrangling-figure/filter.png" title="Filter" alt="Filter" width="90%" style="display: block; margin: auto;" />
+
+Note: _The images in this workshop come from the RStudio’s STRATA NYC R-Day workshop, which was presented by Nathan Stephens._
+
+
 Data Manipulation using dplyr::filter
 ========================================
 - `filter` with a logical operator on a value will filter in/out those observations (rows) with the value.
@@ -160,6 +172,18 @@ Which group of plants (chilled or nonchilled) has a higher average CO2 uptake ra
 ```r
 #_FILL-IN_# # your work here
 ```
+
+select example
+============
+
+```r
+select(storms, storm, pressure) # select `storm` and `pressure` column from `storms`
+```
+
+<img src="./data-wrangling-figure/select.png" title="Filter" alt="Filter" width="90%" style="display: block; margin: auto;" />
+
+Note: _The images in this workshop come from the RStudio’s STRATA NYC R-Day workshop, which was presented by Nathan Stephens._
+
 
 Data Manipulation using dplyr::select
 ===========================================
@@ -217,6 +241,17 @@ Using CO2 dataset,
 #_FILL-IN_# # your work here
 ```
 
+arrange example
+============
+
+```r
+arrange(storms, wind) # arrange 'storms' by increasing order of the wind column 
+```
+
+<img src="./data-wrangling-figure/arrange.png" title="Filter" alt="Filter" width="90%" style="display: block; margin: auto;" />
+
+Note: _The images in this workshop come from the RStudio’s STRATA NYC R-Day workshop, which was presented by Nathan Stephens._
+
 
 Data Manipulation using dplyr::arrange
 ========================================================
@@ -237,10 +272,20 @@ What are the three highest CO2 uptake cases?
 #_FILL-IN_# # your work here
 ```
 
+mutate example
+============
+
+```r
+mutate(storms, ratio = pressure/wind)  # creates a new column, `ratio` containing values by pressure/wind and append it as the last column
+```
+
+<img src="./data-wrangling-figure/mutate.png" title="Filter" alt="Filter" width="90%" style="display: block; margin: auto;" />
+
+Note: _The images in this workshop come from the RStudio’s STRATA NYC R-Day workshop, which was presented by Nathan Stephens._
 
 Data Manipulation using dplyr::mutate
 ========================================================
-- `mutate()` creates new variables and adds it to the end of the data.frame.
+- `mutate()` creates new variables and appends it to the end of the data.frame.
 - `mutate` manipulates variables (columns).
 
 Create a new variable `conc_L` containing concentration values divided by 1000
@@ -249,17 +294,45 @@ Create a new variable `conc_L` containing concentration values divided by 1000
 CO2 %>% mutate(conc_L = conc / 1000) %>% head()
 ```
 
-Data Manipulation using dplyr::summarise and dplyr::group_by
+summarize example
+============
+
+```r
+summarize(pollution, median = median(amount)) 
+```
+
+<img src="./data-wrangling-figure/summarize.png" title="Filter" alt="Filter" width="90%" style="display: block; margin: auto;" />
+
+Note: _The images in this workshop come from the RStudio’s STRATA NYC R-Day workshop, which was presented by Nathan Stephens._
+
+group_by example
+============
+
+```r
+pollotion %>% # input data.frame
+  group_by(city) %>% 
+    summarize(
+      mean = mean(amount),
+      sum = sum(amount),
+      n = n()
+    )
+```
+
+<img src="./data-wrangling-figure/group_by.png" title="Filter" alt="Filter" width="80%" style="display: block; margin: auto;" />
+
+Note: _The images in this workshop come from the RStudio’s STRATA NYC R-Day workshop, which was presented by Nathan Stephens._
+
+Data Manipulation using dplyr::summarize and dplyr::group_by
 ========================================================
-- `summarise` applies a summary function (e.g., mean, sum, etc.) and returns a result.
-- To aggregate variables, `group_by` and `summarise` work together as follows:
+- `summarize` applies a summary function (e.g., mean, sum, etc.) and returns a result.
+- To aggregate variables, `group_by` and `summarize` work together as follows:
 
 Aggregate `CO2` into average values of uptake by plant type:
 
 ```r
 CO2 %>% 
   group_by(Type) %>% 
-  summarise(avg_uptake = mean(uptake, na.rm = TRUE)) 
+  summarize(avg_uptake = mean(uptake, na.rm = TRUE)) 
 ```
 
 Data Manipulation - Pro Tips
@@ -288,28 +361,20 @@ Hands-On Exercise 2 (Difficulty: medium-high)
 
 Hands-On Exercise 1 (Difficulty: low)
 ========================================================
-First, import "Births2015.csv" from GitHub as a data.frame `births2015` to answer the questions below:
+1. Import the data set, Births2015.csv, from https://raw.githubusercontent.com/jehopark/data_wrangling_with_r_beginners/master/Births2015.csv and save it as a new data frame named `births2015`.
 
-1. What are the variables of `births2015` data.frame?
-2. What is the total number of babies born in 2015?
-3. Make a histogram of number of births.  
-4. How many babies were born on Wednesdays? (must use the pipe operator)
-5. Which `date` had the least amount of babies born?
+2. What are the variable names?
 
-The Births2015 CSV file is at https://raw.githubusercontent.com/jehopark/data_wrangling_with_r_beginners/master/Births2015.csv
+3. What is the total number of babies born in 2015?
 
-To import a CSV data file from the Internet:
+4. Create a data frame that contains the number of births on each day of the week in 2015. How many babies were born on Wednesday in 2015? (must use pipe operator)
 
-```r
-library(readr) # need this for read_csv
-fileurl <- "https://raw.githubusercontent.com/jehopark/data_wrangling_with_r_beginners/master/Births2015.csv"
-births2015 <- read_csv(fileurl) 
-```
-
+5. Which date had the least amount of babies born?
 
 Hands-On Exercise 2 (Difficulty: medium-high) 
 ========================================================
 ## COVID-19 Cases in the U.S.
+#### (Try this exercise when you have time. Send me an email once you solved it.)
 
 Create a barplot showing daily changes in the new COVID-19 cases in the US.
 
@@ -319,7 +384,7 @@ Here's the [report](https://www.nytimes.com/interactive/2020/us/coronavirus-us-c
 (3) Find the **raw** CSV file URL for U.S.State-Level Data (us-states.csv); copy the link address.
 (4) Save the link address as fileurl variable.  
 (5) Import us-states.csv to your R Environment and see what are the variable names  
-(6) Group by `date` and then pipe the results to `summarise` to generate a new variable `sum_cases`; what is the summary function you want to use for summarise?  
+(6) Group by `date` and then pipe the results to `summarize` to generate a new variable `sum_cases`; what is the summary function you want to use for summarise?  
 (7) Create a new variable (column) `daily_cases` by mutating the `sum_cases` variable; what kind of mutation do you need here? For calculating the difference between two consecutive days, you want to use `lag` function. Try `lag(1:10, 1)` to see what it returns.  
 (8-1) Use barplot to plot the `daily_cases` variable.
 (8-2) If you are familiar with ggplot2, use geom_bar.
@@ -350,14 +415,6 @@ p
 ```
   
 ### Extra Hands-On: Add the seven day moving average line to the bar plot.
-
-So What Should We Do?
-===============================================
-# #WearAMask
-# #WashHands
-# #KeepSocialDistancing
-and...
-# #LearnR!
 
 End of Session II
 ========================================================
