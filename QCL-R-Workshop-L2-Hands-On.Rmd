@@ -35,14 +35,20 @@ What are the three highest CO2 uptake cases? (Hint: descending order)
 
 ### Homework Exercise 1 (Difficulty: low)
 #### Import birth data and answer the questions below.
-1. What are the variables?
-2. What is the total number of babies born in 2015?
-3. Make a histogram of number of births.  
-4. How many babies were born on Wednesdays? (must use the pipe operator)
+
+1. Import the data set, Births2015.csv, from https://raw.githubusercontent.com/jehopark/data_wrangling_with_r_beginners/master/Births2015.csv and save it as a new data frame named `births2015`.
+
+2. What are the variable names?
+
+3. What is the total number of babies born in 2015?
+
+4. Create a data frame that contains the number of births on each day of the week in 2015. How many babies were born on Wednesday in 2015? (must use pipe operator)
+
 5. Which date had the least amount of babies born?
 
 ### Homework Excercise 2 (Difficulty: medium-high) 
 #### COVID-19 Cases in the U.S.
+#### Try this when you have time later
 
 Homework Exercise 2! (Solution skeleton)
 ========================================================
