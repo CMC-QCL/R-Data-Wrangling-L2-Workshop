@@ -355,7 +355,7 @@ Hands-On Exercise 2 (Difficulty: medium-high)
 
 Hands-On Exercise 1 (Difficulty: low)
 ========================================================
-1. Import the data set, Births2015.csv, from https://raw.githubusercontent.com/jehopark/data_wrangling_with_r_beginners/master/Births2015.csv and save it as a new data frame named `births2015`.
+1. Import the data set, Births2015.csv, from and save it as a new data frame named `births2015`.
 
 2. What are the variable names?
 
@@ -390,18 +390,25 @@ Create a barplot showing daily changes in the new COVID-19 cases in the US.
 ```{r, eval = FALSE}
 library(readr) # need this for read_csv
 
+# Steps 1 - 5
 fileurl <- " #_FILL-IN_# "
 us_states <- read_csv(fileurl) # import CSV
 
-data_covid <- us_states %>% 
+# Step 6
+data_covid_sum <- us_states %>% 
   #_FILL-IN_# %>% # group_by
   #_FILL-IN_# %>%  # summarise
+
+# Step 7
+data_covid_daily <- data_covid_sum %>% 
   #_FILL-IN_# # mutate and lag
+
+# Step 8
 barplot( #_FILL-IN_# ) # just a simple barplot with one argument 
 
 # or use ggplot2 ## We will learn ggplot2 in Visualization Workshop
 require(ggplot2)
-p <- data_covid %>% 
+p <- data_covid_daily %>% 
         ggplot(aes(x=date, y=daily_cases)) + 
         geom_bar(stat="identity", color="orange")
 p

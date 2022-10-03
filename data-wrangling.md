@@ -198,7 +198,7 @@ head(select(CO2, Plant, uptake))
 
 Hands-On 2
 ===================================================
-Create a new data.frame, `x`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset.
+Create a new data.frame, `CO2_nonchilled1`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset.
 
 
 ```r
@@ -228,7 +228,7 @@ head(select(filter(CO2, Treatment=='nonchilled'), Plant, uptake))
 
 Hands-On 3
 ===================================================
-Now let's try chaining (piping) to create a new data.frame, `y`, only containing nonchilled plants with Plant and uptake variables. 
+Now let's try chaining (piping) to create a new data.frame, `CO2_nonchilled2`, only containing nonchilled plants with Plant and uptake variables. 
 
 Using CO2 dataset,  
 (1) filter out chilled plant cases, so the data.frame only has __nonchilled__ plant cases (to be fed to the next function),   
@@ -361,7 +361,7 @@ Hands-On Exercise 2 (Difficulty: medium-high)
 
 Hands-On Exercise 1 (Difficulty: low)
 ========================================================
-1. Import the data set, Births2015.csv, from https://raw.githubusercontent.com/jehopark/data_wrangling_with_r_beginners/master/Births2015.csv and save it as a new data frame named `births2015`.
+1. Import the data set, Births2015.csv, from and save it as a new data frame named `births2015`.
 
 2. What are the variable names?
 
@@ -397,18 +397,25 @@ Create a barplot showing daily changes in the new COVID-19 cases in the US.
 ```r
 library(readr) # need this for read_csv
 
+# Steps 1 - 5
 fileurl <- " #_FILL-IN_# "
 us_states <- read_csv(fileurl) # import CSV
 
-data_covid <- us_states %>% 
+# Step 6
+data_covid_sum <- us_states %>% 
   #_FILL-IN_# %>% # group_by
   #_FILL-IN_# %>%  # summarise
+
+# Step 7
+data_covid_daily <- data_covid_sum %>% 
   #_FILL-IN_# # mutate and lag
+
+# Step 8
 barplot( #_FILL-IN_# ) # just a simple barplot with one argument 
 
 # or use ggplot2 ## We will learn ggplot2 in Visualization Workshop
 require(ggplot2)
-p <- data_covid %>% 
+p <- data_covid_daily %>% 
         ggplot(aes(x=date, y=daily_cases)) + 
         geom_bar(stat="identity", color="orange")
 p
