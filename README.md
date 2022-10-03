@@ -14,8 +14,7 @@ Data wrangling is the process of obtaining, cleaning, reshaping, and transformin
 Learning Objectives: (You will learn how to)
 
 - Import and export data
-- Clean, reshape and transform data
-- Make messy data into tidy data
+- Clean, reshape, and transform data
 - Visualize tidy data using ggplot2 (if time permits)
 
 ## Prerequisites
