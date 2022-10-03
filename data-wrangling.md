@@ -1,7 +1,6 @@
 Data Wrangling with R
 ======================================
-author: Jeho Park
-date: June 30, 2022
+author: Jeho Park, Director, Murty Sunak QCL
 autosize: true
 
 QCL Workshop Participation Requirements: 
@@ -82,10 +81,10 @@ Data Visualization
 
 ```r
 hist(CO2$uptake) # Use help function to check its arguments
-boxplot(CO2$uptake ~ CO2$conc)
-plot(x = CO2$conc, y = CO2$uptake)
+boxplot(CO2$uptake ~ CO2$Type)
+plot(x = mpg$cyl, y = mpg$hwy)
 ```
-**Note that we used '$' to access (or extract) a variable (or a column) of a dataframe. 
+**Note that we used '$' to access (or extract) a variable (or a column) of a data frame. 
 
 Data Visualization - Boxplot
 ========================================================
@@ -134,6 +133,7 @@ filter example
 ============
 
 ```r
+require(tidyverse)
 filter(storms, wind >= 50)
 ```
 
@@ -151,7 +151,7 @@ Data Manipulation using dplyr::filter
 # Logical Operators in R
 5 == 2
 5 < 2
-(5 < 2) & (3 > 2)
+(5 < 2) | (3 > 2)
 5 %in% c(1,2,3,4,5)
 is.na(c(1,2,NA,4,5))
 ```
@@ -166,7 +166,7 @@ filter(CO2, Treatment=='chilled')
 
 Hands-On 1
 =========================================
-Which group of plants (chilled or nonchilled) has a higher average CO2 uptake rate and by how much? 
+Create a tibble named storms_80s which is a subset of storms dataset containing all storms happened in 1980's. 
 
 
 ```r
