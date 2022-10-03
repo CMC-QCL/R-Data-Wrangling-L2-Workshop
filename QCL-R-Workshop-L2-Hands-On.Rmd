@@ -10,19 +10,19 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ### Hands-On 1
-What is the difference in average uptake rates between chilled and nonchilled plants?
+Create a tibble named storms_80s which is a subset of storms dataset containing all storms happened in 1980's.
 ```{r, eval=F}
 # your work here
 ```
 
 ### Hands-On 2
-Create a new data.frame, `x`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset.
+Create a new data frame, `x`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset.
 ```{r, eval=F}
 # your work here
 ```
 
 ### Hands-On 3
-Now let's try chaining (piping) to create a new data.frame, `y`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset.
+Now let's try chaining (piping) to create a new data frame, `y`, with two variables, Plant and uptake, containing only non-chilled plant cases from CO2 dataset.
 ```{r, eval=F}
 # your work here
 ```
