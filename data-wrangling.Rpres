@@ -16,7 +16,7 @@ Recommendations for Engagement:
 
 Workshop Environment Setup
 ====================================
-### 1. Log in to RStudio Cloud
+### 1. Log in to Posit Cloud (https://posit.cloud)
 ### 2. Create a new project -->  Clone the workshop files from my GitHub Repo (i.e., "New Project from Git Repo")
 ### 3. Open data-wrangling.Rpres
 ### 4. Open QCL-R-Workshop-L2-Hands-On.Rmd
@@ -82,6 +82,7 @@ Data Visualization
 hist(CO2$uptake) # Use help function to check its arguments
 boxplot(CO2$uptake ~ CO2$Type)
 plot(x = mpg$cyl, y = mpg$hwy)
+boxplot(mpg$hwy ~ mpg$cyl)
 ```
 **Note that we used '$' to access (or extract) a variable (or a column) of a data frame. 
 
@@ -151,7 +152,7 @@ Data Manipulation using dplyr::filter
 # Logical Operators in R
 5 == 2
 5 < 2
-(5 < 2) | (3 > 2)
+(5 < 2) & (3 > 2)
 5 %in% c(1,2,3,4,5)
 is.na(c(1,2,NA,4,5))
 ```
@@ -174,7 +175,8 @@ Create a tibble named storms_80s which is a subset of storms dataset containing 
 select example
 ============
 ```{r eval=F}
-select(storms, storm, pressure) # select `storm` and `pressure` column from `storms`
+select(storms, name, pressure) # select `storm` and `pressure` column from `storms`
+storms_new <- select(storms, lat, long, everything())
 ```
 
 ```{r, out.width='90%', fig.align='center', fig.cap='Filter', echo = FALSE}
@@ -191,7 +193,7 @@ Data Manipulation using dplyr::select
 
 The following shows the first 6 observations containing only Plant and uptake variables from the CO2 data.frame:
 ```{r eval=FALSE}
-head(select(CO2, Plant, uptake))
+head(select(filter(CO2, Treatment == "nonchilled"), Plant, uptake))
 ```
 
 Hands-On 2
@@ -228,8 +230,8 @@ Now let's try chaining (piping) to create a new data.frame, `CO2_nonchilled2`, o
 Using CO2 dataset,  
 (1) filter out chilled plant cases, so the data.frame only has __nonchilled__ plant cases (to be fed to the next function),   
 (2) select two variables, `Plant` and `uptake` from the new data.frame,  
-(3) assign the new data.frame to a new variable, `y`, and   
-(4) compare `x` and `y` and see if they are indeed the same.
+(3) assign the new data.frame to a new variable, `CO2_nonchilled2`, and   
+(4) compare `CO2_nonchilled1` and `CO2_nonchilled2` and see if they are indeed the same.
 
 ```{r eval=FALSE}
 #_FILL-IN_# # your work here
@@ -262,7 +264,7 @@ Hands-On 4
 ====================================================
 What are the three highest CO2 uptake cases?
 ```{r eval=FALSE}
-#_FILL-IN_# # your work here
+CO2 %>% arrange(-uptake) %>% head(3)
 ```
 
 mutate example
